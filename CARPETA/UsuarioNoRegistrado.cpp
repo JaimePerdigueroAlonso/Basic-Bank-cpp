@@ -70,8 +70,8 @@ void UsuarioNoRegistrado :: datosIntroducidos(){
     cin >> datosCorrectos;
     
     if (datosCorrectos == "Si" || datosCorrectos == "SI" || datosCorrectos == "si"){
-        ofstream baseDeDatos("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatos.txt", ios::app);//abrimos archivo y añadimos info nueva
-        ofstream baseDeDatosSALDOS("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt", ios::app);//abrimos archivo y añadimos info nueva
+        ofstream baseDeDatos("/BaseDeDatos.txt", ios::app);//abrimos archivo y añadimos info nueva
+        ofstream baseDeDatosSALDOS("BaseDeDatosSALDOS.txt", ios::app);//abrimos archivo y añadimos info nueva
         if (baseDeDatos.is_open()){
             cout << "Guardando Datos" << endl;
             baseDeDatos << Nombre << "|" << Apellido1 << "|" << Apellido2 << "|" << FechaDeNacimiento << "|" << dni << "|" << contraseña << "|" <<comprobacionContraseña << "|"<< endl;
