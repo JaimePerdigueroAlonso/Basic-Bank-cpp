@@ -48,13 +48,13 @@ bool UsuarioRegistrado :: leeBaseDeDatosYcompara(string dniEntrada, string contr
     vector <string> vectorContraseñas;
     ifstream BaseDeDatos;
     
-    BaseDeDatos.open("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatos.txt", ios::out); //abrimos archivo para leer
+    BaseDeDatos.open("/BaseDeDatos.txt", ios::out); //abrimos archivo para leer
     if (BaseDeDatos.is_open()) {
         string linea;
         while (getline(BaseDeDatos, linea)) {
             stringstream ss(linea);
             getline(ss,Nombre,'|'); //Le digo que Nombre es la primera palabra que vea hasta que encuentre '|'
-            getline(ss,Apellido1,'|'); //Le digo que Apellido es la palabra que encuentre hasta el siguiente '|'
+            getline(ss,Apellido1,'|'); //Le digo que Apellido1 es la palabra que encuentre hasta el siguiente '|'
             getline(ss,Apellido2,'|');
             getline(ss,FechaDeNacimiento,'|');
             getline(ss,dni,'|');
@@ -84,8 +84,8 @@ void UsuarioRegistrado::ConsultarSaldo(string dniEntrada){
     vector <double> vectorSaldos;
     ifstream BaseDeDatos;
     ifstream BaseDeDatosSALDOS;
-    BaseDeDatos.open("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatos.txt", ios::out);
-    BaseDeDatosSALDOS.open("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt", ios::out);
+    BaseDeDatos.open("/BaseDeDatos.txt", ios::out);
+    BaseDeDatosSALDOS.open("/BaseDeDatosSALDOS.txt", ios::out);
     if (BaseDeDatos.is_open()){
         string linea;
         while(getline(BaseDeDatos,linea)){
@@ -132,16 +132,16 @@ void UsuarioRegistrado::RealizarIngreso(string dniEntrada, double cantidad){
     ifstream BaseDeDatos;
     ifstream BaseDeDatosSALDOS;
     
-    BaseDeDatosSALDOS.open("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt");
-    ofstream BaseDeDatosSALDOS_TEMPORAL("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS_TEMPORAL.txt");
-    BaseDeDatos.open("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatos.txt", ios::out);
+    BaseDeDatosSALDOS.open("/BaseDeDatosSALDOS.txt");
+    ofstream BaseDeDatosSALDOS_TEMPORAL("/BaseDeDatosSALDOS_TEMPORAL.txt");
+    BaseDeDatos.open("/BaseDeDatos.txt", ios::out);
     
     if (BaseDeDatos.is_open()){
         string linea;
         while(getline(BaseDeDatos,linea)){
             stringstream ss(linea);
             getline(ss, Nombre, '|');
-            getline(ss,Apellido1,'|'); //Le digo que Apellido es la palabra que encuentre hasta el siguiente '|'
+            getline(ss,Apellido1,'|'); //Le digo que Apellido1 es la palabra que encuentre hasta el siguiente '|'
             getline(ss,Apellido2,'|');
             getline(ss,FechaDeNacimiento,'|');
             getline(ss,dni,'|');
@@ -184,8 +184,8 @@ void UsuarioRegistrado::RealizarIngreso(string dniEntrada, double cantidad){
         BaseDeDatosSALDOS.close();
         BaseDeDatosSALDOS_TEMPORAL.close();
         
-        remove("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt");
-        rename("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS_TEMPORAL.txt", "/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt");
+        remove("/BaseDeDatosSALDOS.txt");
+        rename("/BaseDeDatosSALDOS_TEMPORAL.txt", "/BaseDeDatosSALDOS.txt");
 }
 
 
@@ -195,9 +195,9 @@ void UsuarioRegistrado::RealizarRetirada(string dniEntrada, double cantidad){
     ifstream BaseDeDatos;
     ifstream BaseDeDatosSALDOS;
     
-    BaseDeDatosSALDOS.open("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt");
-    ofstream BaseDeDatosSALDOS_TEMPORAL("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS_TEMPORAL.txt");
-    BaseDeDatos.open("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatos.txt", ios::out);
+    BaseDeDatosSALDOS.open("/BaseDeDatosSALDOS.txt");
+    ofstream BaseDeDatosSALDOS_TEMPORAL("/BaseDeDatosSALDOS_TEMPORAL.txt");
+    BaseDeDatos.open("/BaseDeDatos.txt", ios::out);
     
     if (BaseDeDatos.is_open()){
         string linea;
@@ -247,8 +247,8 @@ void UsuarioRegistrado::RealizarRetirada(string dniEntrada, double cantidad){
         BaseDeDatosSALDOS.close();
         BaseDeDatosSALDOS_TEMPORAL.close();
         
-        remove("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt");
-        rename("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS_TEMPORAL.txt", "/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt");
+        remove("/BaseDeDatosSALDOS.txt");
+        rename("BaseDeDatosSALDOS_TEMPORAL.txt", "/BaseDeDatosSALDOS.txt");
 }
 
 
@@ -258,9 +258,9 @@ void UsuarioRegistrado::RealizarTransferencia(string dniEntrada, string dniSalid
     ifstream BaseDeDatos;
     ifstream BaseDeDatosSALDOS;
     
-    BaseDeDatosSALDOS.open("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt");
-    ofstream BaseDeDatosSALDOS_TEMPORAL("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS_TEMPORAL.txt");
-    BaseDeDatos.open("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatos.txt", ios::out);
+    BaseDeDatosSALDOS.open("/BaseDeDatosSALDOS.txt");
+    ofstream BaseDeDatosSALDOS_TEMPORAL("/BaseDeDatosSALDOS_TEMPORAL.txt");
+    BaseDeDatos.open("/BaseDeDatos.txt", ios::out);
     
     if (BaseDeDatosSALDOS.is_open()){
         string lineaSALDOS;
@@ -313,8 +313,8 @@ void UsuarioRegistrado::RealizarTransferencia(string dniEntrada, string dniSalid
     BaseDeDatosSALDOS.close();
     BaseDeDatosSALDOS_TEMPORAL.close();
     
-    remove("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt");
-    rename("/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS_TEMPORAL.txt", "/Users/eduros/Documents/EDUARDO/CUNEF/3 AÑO/1º CUATRI/PROYECTOS DE PROGRAMACIÓN/MIS BASES DE DATOS/BaseDeDatosSALDOS.txt");
+    remove("/BaseDeDatosSALDOS.txt");
+    rename("/BaseDeDatosSALDOS_TEMPORAL.txt", "/BaseDeDatosSALDOS.txt");
 }
 
 
