@@ -2,7 +2,7 @@
 //  Interfaz.cpp
 //  PRACTICA SISTEMA BANCARIO
 //
-//  Created by Eduardo Ros on 29/11/23.
+//  Created by Eduardo Ros and Jaime Perdiguero on 29/11/23.
 //
 
 #include "Interfaz.hpp"
